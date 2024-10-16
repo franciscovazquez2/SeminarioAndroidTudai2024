@@ -53,7 +53,7 @@ class MovieModule {
     @Provides
     fun providesRetroFit():Retrofit{
         return Retrofit.Builder()
-            .baseUrl("https://bored.api.lewagon.com/api/")
+            .baseUrl("https://api.themoviedb.org/3/movie/")//"https://randomuser.me/api/?results=100"
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

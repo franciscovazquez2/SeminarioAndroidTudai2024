@@ -49,18 +49,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.movies.observe(this) { movies ->
-            binding.activityId.text= movies?.id.toString()
-            binding.activityName.text=movies?.title.toString()
-            // Comprueba si la lista no es nula y no está vacía
-            /*val firstMovie = movies?.firstOrNull()
-            if (firstMovie != null) {
-                binding.activityId.text = firstMovie.id.toString()
-                binding.activityName.text = firstMovie.title.toString()
-            }*/
+            binding.movieslist.adapter=MovieAdapter(movies?: emptyList())
         }
 
 
         binding.buttonCargar.setOnClickListener{ viewModel.getMovies()
+        }
+
+        viewModel.error.observe(this){ error->
+            if(error){
+                binding.error.visibility=android.view.View.VISIBLE
+            }
+            else{
+                binding.error.visibility=android.view.View.INVISIBLE
+            }
+
         }
 
     }

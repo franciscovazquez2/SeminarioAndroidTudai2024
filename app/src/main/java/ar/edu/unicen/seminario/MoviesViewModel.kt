@@ -19,8 +19,8 @@ class MoviesViewModel @Inject constructor(
     private val _error = MutableLiveData<Boolean>()
     val error : LiveData<Boolean> get() = _error
 
-    private val _movies = MutableLiveData<ActivityMovie>()
-    val movies: LiveData<ActivityMovie>get()=_movies
+    private val _movies = MutableLiveData<List<Movie>>()
+    val movies: LiveData<List<Movie>>get()=_movies
 
     fun getMovies(){
 
@@ -29,8 +29,7 @@ class MoviesViewModel @Inject constructor(
             _error.value=false
             _movies.value= null
 
-            val movies : ActivityMovie? = moviesRepository.getMovies()
-
+            val movies : List<Movie>? = moviesRepository.getMovies()
             _loading.value=false
             _movies.value= movies
             _error.value= (movies == null)

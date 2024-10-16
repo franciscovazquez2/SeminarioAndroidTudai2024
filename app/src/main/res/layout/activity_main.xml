@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/activity_information"
         android:layout_width="363dp"
         android:layout_height="500dp"
@@ -63,7 +63,27 @@
             android:layout_marginTop="30dp"
             android:textSize="15dp"/>
 
-    </LinearLayout>
+    </LinearLayout>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/movieslist"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonCargar"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
+    <TextView
+        android:id="@+id/error"
+        android:visibility="invisible"
+        android:text="Intente de nuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        tools:layout_editor_absoluteX="308dp"
+        tools:layout_editor_absoluteY="20dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

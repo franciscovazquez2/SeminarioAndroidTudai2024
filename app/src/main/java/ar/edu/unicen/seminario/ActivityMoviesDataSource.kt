@@ -1,9 +1,7 @@
 package ar.edu.unicen.seminario
 
-import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.Dispatcher
 import javax.inject.Inject
 
 class ActivityMoviesDataSource @Inject constructor (
@@ -29,13 +27,27 @@ class ActivityMoviesDataSource @Inject constructor (
             null
             }
         }
-    }*/
+    }
 
-    suspend fun getMovies():ActivityMovie?{
+    suspend fun getMovies():Movie?{
         return withContext(Dispatchers.IO){
             val response = moviesApi.getMovies()
-            val activityMovies: ActivityMovie? = response.body()?.toActivityMovies()
+            val activityMovies: Movie? = response.body()?.toActivityMovies()
             return@withContext activityMovies
+        }
+    }*/
+    suspend fun getMovies(): List<Movie>? {
+        return withContext(Dispatchers.IO){
+            try{
+                val response = moviesApi.getMovies()
+                //val activityMovies: List<Movie>? = response.body()?.map{it.toActivityMovies()}
+                val moviesResponse = response.body()
+                val activityMovies: List<Movie>? =moviesResponse?.results?.map{it.toActivityMovies()}
+                return@withContext activityMovies
+            }catch (e : Exception){
+                //Log.e("MoviesError", "Error fetching movies: ${e.message}", e)
+                return@withContext null
+            }
         }
     }
 
