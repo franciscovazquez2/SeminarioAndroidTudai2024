@@ -1,0 +1,39 @@
+package ar.edu.unicen.seminario
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+@HiltViewModel
+class MoviesViewModel @Inject constructor(
+    private val moviesRepository: ActivityMoviesRepository
+): ViewModel() {
+
+    private val _loading = MutableLiveData<Boolean>()
+    val loading : LiveData<Boolean> get()= _loading
+
+    private val _error = MutableLiveData<Boolean>()
+    val error : LiveData<Boolean> get() = _error
+
+    private val _movies = MutableLiveData<ActivityMovie>()
+    val movies: LiveData<ActivityMovie>get()=_movies
+
+    fun getMovies(){
+
+        viewModelScope.launch {
+            _loading.value=true
+            _error.value=false
+            _movies.value= null
+
+            val movies : ActivityMovie? = moviesRepository.getMovies()
+
+            _loading.value=false
+            _movies.value= movies
+            _error.value= (movies == null)
+        }
+    }
+}

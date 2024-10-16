@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Seminario</string>
+    <string name="hello_world">Hola Mundo</string>
+    <string name="Peliculas">Lista de Peliculas</string>
+    <string name="Button">incrementar</string>
+    <string name="mainActivity">navegarRoja</string>
+    <string name="redActivity">navegarAzul</string>
+    <string name="blueActivity">navegarMain</string>
+</resources>
