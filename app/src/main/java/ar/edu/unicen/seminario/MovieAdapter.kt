@@ -6,10 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import ar.edu.unicen.seminario.databinding.ItemMovieBinding
 
 class MovieAdapter(
-    private val movies : List<Movie>
+    private val movies : List<Movie>,
+    private val onMovieClick:(Movie)->Unit
 ): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-    //dueño de una view
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -26,13 +25,17 @@ class MovieAdapter(
         holder.show(movie)
     }
 
-    class MovieViewHolder(
+    inner class MovieViewHolder(
         private val binding : ItemMovieBinding
     ): RecyclerView.ViewHolder(binding.root){
 
         fun show(movie: Movie){//aca
             binding.movieName.text=movie.title
-            binding.movieEmail.text=movie.email
+            binding.movieEmail.text=movie.id.toString()
+            binding.root.setOnClickListener{
+                onMovieClick(movie)
+            }
+
         }
     }
 

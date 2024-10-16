@@ -2,19 +2,14 @@ package ar.edu.unicen.seminario
 
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface MoviesApi {
 
-
     @GET("popular")
-    suspend fun getMovies():Response<ActivityListMoviesDto>
+    suspend fun getMovies(
+        @Query("api_key") apikey: String
+    ):Response<ActivityListMoviesDto>
 
-    /*
-    @GET("activity")
-    suspend fun getMovies():Response<List<ActivityMoviesDto>>
-
-    @GET("?results=100")
-    suspend fun getMovies():Response<ActivityListMoviesDto>
-    */
 }
 

@@ -54,6 +54,7 @@ dependencies {//dependencias a incluir
     implementation(libs.retrofit.gson)
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
+    implementation(libs.glide)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

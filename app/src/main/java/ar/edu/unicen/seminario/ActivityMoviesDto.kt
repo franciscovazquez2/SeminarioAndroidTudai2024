@@ -32,7 +32,7 @@ data class ActivityMoviesDto (
     )
 
 {
-    fun toActivityMovie(): Movie {
+    fun toActivityMovies(): Movie {
         return Movie(
             id = id,
             title = original_title,

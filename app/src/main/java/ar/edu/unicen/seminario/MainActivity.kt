@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -49,7 +50,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.movies.observe(this) { movies ->
-            binding.movieslist.adapter=MovieAdapter(movies?: emptyList())
+            binding.movieslist.adapter=MovieAdapter(
+                movies?: emptyList(),
+                onMovieClick = { movie->
+                    Toast.makeText(this, movie.title+" "+movie.id,Toast.LENGTH_SHORT).show()
+                })
         }
 
 
