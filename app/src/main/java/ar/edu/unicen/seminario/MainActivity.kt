@@ -52,9 +52,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.movies.observe(this) { movies ->
             binding.movieslist.adapter=MovieAdapter(
                 movies?: emptyList(),
-                onMovieClick = { movie->
-                    Toast.makeText(this, movie.title+" "+movie.id,Toast.LENGTH_SHORT).show()
-                })
+                onMovieClick = { })
         }
 
 

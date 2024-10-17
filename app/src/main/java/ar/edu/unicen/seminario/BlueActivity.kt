@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ar.edu.unicen.seminario.databinding.ActivityBlueBinding
+import com.bumptech.glide.Glide
 
 class BlueActivity: AppCompatActivity() {
 
@@ -14,6 +15,15 @@ class BlueActivity: AppCompatActivity() {
 
         binding = ActivityBlueBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val movieTitle = intent.getStringExtra("MOVIE_TITLE")
+        val movieImage = intent.getStringExtra("MOVIE_IMAGE")
+        val movieId = intent.getStringExtra("MOVIE_ID")
+
+        binding.title.text=movieTitle
+        //binding//.text=movieId.toString()
+
+        Glide.with(this).load(movieImage).into(binding.movieImg)
 
         binding.navegarMain.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

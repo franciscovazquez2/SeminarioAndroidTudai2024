@@ -25,11 +25,9 @@
         </activity>
         <!--cada pantalla nueva se debe declarar para que android sepa que existe-->
         <activity
-            android:name=".RedActivity"
-            android:exported="true"/>
-        <activity
             android:name=".BlueActivity"
             android:exported="true"/>
+
     </application>
 
 </manifest>
