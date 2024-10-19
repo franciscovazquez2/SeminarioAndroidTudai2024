@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding//lateinit posterga la inicializacion de la variable
+    private lateinit var binding : ActivityMainBinding//posterga la inicializacion de la variable
     private val viewModel by viewModels<MoviesViewModel>()//correcta implementacion para el MainModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,13 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)//esta definido en la carpeta res
 
-        /*
-        binding.buttonCargar.setOnClickListener{ viewModel.increment()
-        }//counter++ //binding.title.text=counter.toString()
+        viewModel.getMovies()
 
-        viewModel.counter.observe(this){//observa mientras el ciclo de vida se encuentre vivo, sino se cancela
-            valor->binding.title.text = valor.toString() //actualizo el valor de contador (observo los cambios)
-        }*/
+        //logica que maneja el estado del loader / recarga de peliculas / informacion de error
 
         viewModel.loading.observe(this){ loading->
             if(loading){
@@ -55,7 +51,6 @@ class MainActivity : AppCompatActivity() {
                 onMovieClick = { })
         }
 
-
         binding.buttonCargar.setOnClickListener{ viewModel.getMovies()
         }
 
@@ -72,56 +67,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
-/*
-* Bundle y parcelables: datos clave valor que se pueden persistir entre estados de la aplicacion
-* utilizados para no perder informacion ante minimizacion,rotacion o cambio de formato en aplicacion
-* onSaveInstanceState(outState:Bundle)
-*
-* CONTEXT: clase abstracta que nos provee android , regula acceso y modificacion de elementos, permisos, etc
-*
-*
- ----------VARIABLE Y METODOS NECESARIOS PARA MANTENER ESTADO(reemplazado por LiveData y MutableLiveData)----------------
-    private var counter : Int = 0
-
-    /*salvar estado para cuando android destruya*/
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putInt("counter",counter)
-    }
-    /*recuperar estado*/
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        counter = savedInstanceState.getInt("counter")//tomar el dato
-        binding.title.text=counter.toString();
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.i("MainActivity","pause")
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.i("MainActivity","start")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i("MainActivity","destroy")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.i("MainActivity","resume")
-    }
- ----------------------------------------------------------------------------------------------------
-
-    /*navegacion entre pantallas se logra con Intent*/
-    binding.navegarRed.setOnClickListener{
-        val intent = Intent(this,RedActivity::class.java)
-        intent.putExtra("counter",counter)//intent permite pasar bundle /si no es primitivo debe ser parcelable
-        startActivity(intent)//manda un mensaje a la activity que quiere iniciar
-    }
- */
-
