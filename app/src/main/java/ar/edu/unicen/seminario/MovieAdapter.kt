@@ -40,11 +40,12 @@ class MovieAdapter(
             binding.root.setOnClickListener{
                 onMovieClick(movie)
                 val intent = Intent(itemView.context, BlueActivity::class.java)
-                intent.putExtra("MOVIE_TITLE", movie.title)  // Pasando titulo
-                intent.putExtra("MOVIE_IMAGE", movie.img)    // Pasando URL de  imagen
-                intent.putExtra("MOVIE_OVERVIEW",movie.overview)//pasando sinopsis
-                intent.putExtra("MOVIE_VOTE_AVERAGE",movie.voteAverage.toString())//pasando ranking
-                intent.putExtra("MOVIE_GENRE_IDS",movie.getGenres())//pasando generos
+                /*envio de parametros hacia la proxima pantalla (titulo,URLimagen,sinopsis,ranking,generos)*/
+                intent.putExtra("MOVIE_TITLE", movie.title)
+                intent.putExtra("MOVIE_IMAGE", movie.img)
+                intent.putExtra("MOVIE_OVERVIEW",movie.overview)
+                intent.putExtra("MOVIE_VOTE_AVERAGE",movie.voteAverage.toString())
+                intent.putExtra("MOVIE_GENRES",movie.genres)
 
                 // Inicia la nueva Activity
                 itemView.context.startActivity(intent)

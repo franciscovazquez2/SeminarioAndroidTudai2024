@@ -19,15 +19,24 @@ data class ActivityMoviesDto (
     )
 
 {
-    fun toActivityMovies(): Movie {
+    /*Convierte dto en Movie*/
+    fun toActivityMovies(genresMap: Map<Int, String>): Movie {
+
+        val genres = if (genre_ids.isNullOrEmpty()) {
+            "Unknown" // valor por defecto si no se encuentran generos
+        } else {
+            genre_ids.mapNotNull { genresMap[it] } //mapeo y concatenacion a un solo string
+                .joinToString(", ")
+        }
+
         return Movie(
             id = id,
             title = original_title,
-            img = "https://image.tmdb.org/t/p/original/"+ poster_path,//ruta completa de la imagen
+            img = "https://image.tmdb.org/t/p/original/"+poster_path,
             overview = overview,
             voteAverage = vote_average,
-            genre_ids=genre_ids
+            genres = genres //genero completo
         )
     }
-
 }
+
