@@ -8,9 +8,9 @@ import javax.inject.Inject
 class ActivityMoviesDataSource @Inject constructor (
     private val moviesApi : MoviesApi
 ) {
-
+    /* Realiza una llamada a la API de películas en un hilo de IO usando coroutines*/
     suspend fun getMovies(): List<Movie>? {
-        val apikey = "f1ad05a4e1942824ef667ee4c2b7d180"
+        val apikey = "f1ad05a4e1942824ef667ee4c2b7d180"/*clave de validacion API Movies*/
         return withContext(Dispatchers.IO){
             try{
                 val response = moviesApi.getMovies(apikey)
@@ -19,8 +19,7 @@ class ActivityMoviesDataSource @Inject constructor (
                 val activityMovies: List<Movie>? =moviesResponse?.results?.map{it.toActivityMovies()}
                 return@withContext activityMovies
             }catch (e : Exception){
-                Log.e("MoviesError", "Error fetching movies: ${e.message}", e)
-                return@withContext null
+                return@withContext null/*si la llamada provoca algun error */
             }
         }
     }

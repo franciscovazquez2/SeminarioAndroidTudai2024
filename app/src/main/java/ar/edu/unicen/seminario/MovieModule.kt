@@ -15,15 +15,16 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class MovieModule {
 
+    /* Provee una instancia de Retrofit con la URL base de la API de The Movie DB y el convertidor Gson*/
     @Singleton
     @Provides
     fun providesRetroFit():Retrofit{
         return Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/3/movie/")//"https://randomuser.me/api/?results=100"
+            .baseUrl("https://api.themoviedb.org/3/movie/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
+    /* Provee una instancia de MoviesApi generada a partir de Retrofit */
     @Provides
     fun providesMoviesApi(retrofit: Retrofit):MoviesApi{
         return retrofit.create(MoviesApi::class.java)

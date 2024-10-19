@@ -18,10 +18,13 @@ class BlueActivity: AppCompatActivity() {
 
         val movieTitle = intent.getStringExtra("MOVIE_TITLE")
         val movieImage = intent.getStringExtra("MOVIE_IMAGE")
-        val movieId = intent.getStringExtra("MOVIE_ID")
-
+        val movieOverview = intent.getStringExtra("MOVIE_OVERVIEW")
+        val movieAverage = intent.getStringExtra("MOVIE_VOTE_AVERAGE")
+        val moviegenreids = intent.getStringExtra("MOVIE_GENRE_IDS")
         binding.title.text=movieTitle
-        //binding//.text=movieId.toString()
+        binding.synopsis.text=movieOverview
+        binding.rating.text=movieAverage.toString()
+        binding.genres.text=moviegenreids
 
         Glide.with(this).load(movieImage).into(binding.movieImg)
 

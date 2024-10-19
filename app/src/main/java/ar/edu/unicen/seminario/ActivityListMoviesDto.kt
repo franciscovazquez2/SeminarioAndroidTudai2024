@@ -1,6 +1,6 @@
 package ar.edu.unicen.seminario
 
-import com.google.gson.annotations.SerializedName
+/*Contiene la lista de objetos DTO que contienen los detalles de cada película*/
 
 data class ActivityListMoviesDto(
     val results : List<ActivityMoviesDto>
