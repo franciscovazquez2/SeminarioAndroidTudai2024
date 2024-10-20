@@ -1,19 +1,20 @@
-package ar.edu.unicen.seminario
+package ar.edu.unicen.seminario.activities
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ar.edu.unicen.seminario.databinding.ActivityBlueBinding
+import ar.edu.unicen.seminario.databinding.ActivityMoviesBinding
+
 import com.bumptech.glide.Glide
 
-class BlueActivity: AppCompatActivity() {
+class MovieActivity: AppCompatActivity() {
 
-    private lateinit var binding : ActivityBlueBinding
+    private lateinit var binding : ActivityMoviesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityBlueBinding.inflate(layoutInflater)
+        binding = ActivityMoviesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val movieTitle = intent.getStringExtra("MOVIE_TITLE")

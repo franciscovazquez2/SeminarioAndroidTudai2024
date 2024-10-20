@@ -1,5 +1,7 @@
-package ar.edu.unicen.seminario
+package ar.edu.unicen.seminario.movies
 
+import ar.edu.unicen.seminario.dto.ActivityListMoviesDto
+import ar.edu.unicen.seminario.dto.GenreListDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

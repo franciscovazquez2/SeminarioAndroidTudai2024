@@ -1,9 +1,10 @@
-package ar.edu.unicen.seminario
+package ar.edu.unicen.seminario.movies
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ar.edu.unicen.seminario.activities.MovieActivity
 import ar.edu.unicen.seminario.databinding.ItemMovieBinding
 import com.bumptech.glide.Glide
 
@@ -33,13 +34,13 @@ class MovieAdapter(
 
         fun show(movie: Movie){//aca
             binding.movieName.text=movie.title
-            binding.movieEmail.text=movie.id.toString()
+            binding.movieGenre.text=movie.genres
 
             Glide.with(itemView.context).load(movie.img).into(binding.movieImg)
 
             binding.root.setOnClickListener{
                 onMovieClick(movie)
-                val intent = Intent(itemView.context, BlueActivity::class.java)
+                val intent = Intent(itemView.context, MovieActivity::class.java)
                 /*envio de parametros hacia la proxima pantalla (titulo,URLimagen,sinopsis,ranking,generos)*/
                 intent.putExtra("MOVIE_TITLE", movie.title)
                 intent.putExtra("MOVIE_IMAGE", movie.img)

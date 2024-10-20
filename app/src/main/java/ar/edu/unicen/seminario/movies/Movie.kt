@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario
+package ar.edu.unicen.seminario.movies
 
 /*Representa la estructura del contenido de cada Pelicula*/
 

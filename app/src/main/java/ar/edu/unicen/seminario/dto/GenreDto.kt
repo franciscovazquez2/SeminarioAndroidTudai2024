@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario
+package ar.edu.unicen.seminario.dto
 
 import com.google.gson.annotations.SerializedName
 

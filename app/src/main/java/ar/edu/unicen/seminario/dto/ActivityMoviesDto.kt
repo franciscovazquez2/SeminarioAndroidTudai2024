@@ -1,5 +1,6 @@
-package ar.edu.unicen.seminario
+package ar.edu.unicen.seminario.dto
 
+import ar.edu.unicen.seminario.movies.Movie
 import com.google.gson.annotations.SerializedName
 
 data class ActivityMoviesDto (

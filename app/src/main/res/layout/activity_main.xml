@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <TextView
         android:id="@+id/title"
@@ -14,10 +15,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/Peliculas"
-        android:textColor="@color/PrimaryColor"
-        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,17 +27,22 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:visibility="invisible"
-        tools:ignore="InvalidId,MissingConstraints"
-        tools:layout_editor_absoluteX="181dp"
-        tools:layout_editor_absoluteY="116dp" />
+        android:textColor="@color/PrimaryColor"
+        app:layout_constraintTop_toBottomOf="@id/buttonCargar"
+        app:layout_constraintBottom_toTopOf="@id/movieslist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/buttonCargar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:text="@string/Button"
+        android:textStyle="bold"
+        android:backgroundTint="@color/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
@@ -54,13 +61,17 @@
 
     <TextView
         android:id="@+id/error"
-        android:visibility="invisible"
-        android:text="Intente de nuevo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
-        tools:layout_editor_absoluteX="308dp"
-        tools:layout_editor_absoluteY="20dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginBottom="16dp"
+        android:text="Intente de nuevo"
+        android:textColor="@color/red"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,9 @@
-package ar.edu.unicen.seminario
+package ar.edu.unicen.seminario.movies
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -26,7 +23,7 @@ class MovieModule {
     }
     /* Provee una instancia de MoviesApi generada a partir de Retrofit */
     @Provides
-    fun providesMoviesApi(retrofit: Retrofit):MoviesApi{
+    fun providesMoviesApi(retrofit: Retrofit): MoviesApi {
         return retrofit.create(MoviesApi::class.java)
     }
 }

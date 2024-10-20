@@ -3,4 +3,5 @@
     <string name="Peliculas">Lista de Peliculas</string>
     <string name="Button">Cargar peliculas</string>
     <string name="blueActivity">Volver</string>
+    <string name="error"> Ocurrió un error, intente nuevamente</string>
 </resources>

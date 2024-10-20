@@ -1,9 +1,11 @@
-package ar.edu.unicen.seminario
+package ar.edu.unicen.seminario.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import ar.edu.unicen.seminario.movies.Movie
+import ar.edu.unicen.seminario.repository.ActivityMoviesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

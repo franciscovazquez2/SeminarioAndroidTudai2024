@@ -1,18 +1,11 @@
-package ar.edu.unicen.seminario
+package ar.edu.unicen.seminario.activities
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import ar.edu.unicen.seminario.movies.MovieAdapter
+import ar.edu.unicen.seminario.model.MoviesViewModel
 import ar.edu.unicen.seminario.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.movies.observe(this) { movies ->
-            binding.movieslist.adapter=MovieAdapter(
+            binding.movieslist.adapter= MovieAdapter(
                 movies?: emptyList(),
                 onMovieClick = { })
         }
