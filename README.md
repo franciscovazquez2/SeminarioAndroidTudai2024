@@ -54,10 +54,4 @@ La aplicación cuenta con las siguientes características:
 2. **Pantalla de Detalles de Película**:
    - Muestra la información detallada de la película seleccionada, como su título, género y descripción.
 
-## Tecnologías Utilizadas
-
-- **Lenguaje**: Kotlin y Java
-- **Arquitectura**: MVVM (Model-View-ViewModel)
-- **API Externa**: Para la obtención de películas y géneros.
-- **Dependencias**: El proyecto utiliza un sistema modularizado con `MovieModule` para la inyección de dependencias.
 
